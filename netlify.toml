@@ -1,0 +1,13 @@
+[functions]
+  node_bundler = "esbuild"
+  # Bundle all deps to avoid runtime require() of ESM packages like p-retry
+
+[functions."scan"]
+  # Netlify schedules run in UTC; set Europe/Rome-equivalent cron here (see PR notes)
+  schedule = "0 * * * *" # every hour
+
+[context.production.environment]
+  TIMEZONE = "Europe/Rome"
+  STATE_BACKEND = "netlify-kv"
+  NODE_VERSION = "20"
+  AWS_LAMBDA_JS_RUNTIME = "nodejs20.x"

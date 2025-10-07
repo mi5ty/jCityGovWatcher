@@ -1,0 +1,38 @@
+{
+  "name": "albo-pretorio-watcher",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered scraper for Italian municipalities' Albo Pretorio with Telegram notifications and Netlify scheduled function.",
+  "license": "MIT",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "scan": "ts-node src/index.ts scan",
+    "prepare": "",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.4.5",
+    "luxon": "^3.5.0",
+    "p-retry": "^6.0.1",
+    "undici": "^6.19.8",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.7.1",
+    "@types/node": "^20.11.30",
+    "@vitest/coverage-v8": "^3.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.4"
+  }
+}
