@@ -3,10 +3,10 @@ import { AlboItem, Env } from '../types';
 
 export async function summarizeItems(env: Env, items: AlboItem[]): Promise<string> {
   const system = `Sei un assistente che riassume le nuove pubblicazioni dell'Albo Pretorio in italiano.
-Scrivi un breve riassunto puntato per un pubblico generale. Evidenzia categorie (Determina, Delibera, Ordinanza, Avviso...), oggetti, periodi di pubblicazione e eventuali allegati importanti.
+Scrivi un brevissimo riassunto puntato per un pubblico generale. Evidenzia categorie (Determina, Delibera, Ordinanza, Avviso...), oggetti, periodi di pubblicazione e eventuali allegati importanti.
 Mantieni un tono conciso e informativo. Evita di inventare dettagli. Evita di includere informazioni sugli allegati se non presenti.`;
 
-  const user = `Riepiloga in 5-8 punti le seguenti pubblicazioni (non ripetere tutte se sono troppe, scegli le più rilevanti e varie):\n\n${items
+  const user = `Riepiloga in pochi punti le seguenti pubblicazioni (non ripetere tutte se sono troppe, scegli le più rilevanti e varie):\n\n${items
     .map(
       (i) => `- [${i.category || i.type || 'Atto'}] ${i.subject || '(oggetto non disponibile)'} (${i.dateStart || '?'} → ${
         i.dateEnd || '?'
